@@ -1,0 +1,220 @@
+
+*{margin:0 51 0 0;
+padding:0
+}
+
+body{
+		
+}
+
+.carousel { align:center;}
+
+.form {
+	float:left;
+	padding-left:10px;
+	padding-top: 30px;
+	padding-right: 10px;
+	width:30%;
+}
+
+
+.footer {
+	float:left;
+    margin-top:20px;
+	padding:20px;
+	width:100%;
+	color:#FFF;
+	background-color:#000;
+	text-align:center;
+}
+
+.navigation{
+    float: left;
+}
+
+
+.navbar-inverse
+.navbar-nav >
+.active > a,
+.navbar-inverse
+.navbar-nav >
+.active > a:focus,
+.navbar-inverse
+.navbar-nav >
+.active > a:hover {
+    background-color: #337ab7;
+    color: #fff;
+}
+
+
+/*Navbar Home*/
+
+.navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand:hover {
+    color: #fff;
+    background-color: #337ab7;
+}
+
+
+
+.navbar-inverse .navbar-brand {
+    /* for font color of Home Button
+       color: #9d9d9d;*/
+    color:#fff;
+}
+
+
+
+.navbar-inverse 
+.navbar-nav > li > a {
+    color:#fff;
+}
+
+.navbar-inverse 
+.navbar-nav > li > a:hover {
+    background-color:#337ab7;
+    color: #fff;
+    width:auto;
+}
+
+
+
+.description {
+	float:right;
+	width:70%;
+	
+}
+
+.learn img {
+	width:30%;
+	height:10%;
+	border-radius:30%;
+	float:left;
+}
+
+.learn {
+	margin-top: 30px;
+}
+
+.learn h1{ margin-top: 30px; margin-left: 300px;}
+.learn p {margin-bottom: 100px; margin-left: 300px;}
+.shareyourviews img {
+	width: 30%;
+	height:50%;
+	border-radius:30%;
+	float: left;
+	
+}
+
+.shareyourviews {
+	margin-top: 30px;
+	
+}
+
+.shareyourviews h1{ margin-top: 30px; margin-left: 300px;}
+.shareyourviews p {margin-bottom: 50px; margin-left: 300px;}
+
+.FAQ img {
+	width:30%;
+	height:50%;
+	border-radius:30%;
+	float:left;
+}
+
+.FAQ {
+	margin-top: 30px;
+}
+
+.FAQ h1{ margin-top: 30px; margin-left: 300px;}
+.FAQ p {margin-bottom: 100px; margin-left: 300px;}
+
+
+/*.login{
+    align-content:center;
+}*/
+
+.modal-content
+{
+    width:auto;
+    height:auto;
+}
+
+
+.modal-body {
+    position: relative;
+    padding: 15px;
+    padding-bottom: 40px;
+    background-color: #F7F7DE;
+}
+
+
+
+/* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;} 
+    }
+
+    .banner {
+        height:180px;
+        width:100%;
+    }
+    .banner img{
+        height:180px;
+        width:100%;
+    }
+
+
+    /* Bootstrap Accordian collaspe for Javablogpage and androidblogpage*/
+.panel-default>.panel-heading {
+    color: #333;
+    background-color: #222;
+    border-color: #ddd;
+}
+
+ .panel-title {
+    margin-top: 0;
+    margin:2px;
+    font-size: 16px;
+    color: #fff;
+}
+
+.panel-title a {
+    display:block;
+}
+
+ a:focus, a:hover {
+    color: #23527c;
+    text-decoration: none;
+}
+
+
+ /* For Read More In javablogpage.asp introduction*/
+ .morecontent span {
+    display: none;
+}
+.morelink {
+    display: block;
+}
+
+/* Bootstrap form submit Button*/
+button, html input[type=button], input[type=reset], input[type=submit] {
+    -webkit-appearance: button;
+    cursor: pointer;
+    margin-left: 5px;
+}

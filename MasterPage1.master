@@ -1,0 +1,198 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage1.master.cs" Inherits="MasterPage1" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
+<script runat="server" lang="C#">
+
+    protected void Link_Click(object o, EventArgs e)
+    {
+        Session.Clear();
+
+        HttpCookie myCookie = new HttpCookie("Preferences");
+        myCookie.Expires = DateTime.Now.AddDays(-1d);
+        Response.Cookies.Add(myCookie);
+
+        Response.Redirect("Default.aspx");
+    }
+
+
+</script>
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Online Community</title>
+    <link rel="icon" type="image/png" href="icon/image.png" />
+   
+   <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    
+    <%--<asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>--%>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="banner">
+        <img src="image/faqbanner1.jpg" alt=""/>
+    </div>
+
+
+    <form id="form1" runat="server">
+    <div>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="Default.aspx">Home</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li ><a href="#"><% if (Session["login"] != null)
+                                            Response.Write(Session["login"].ToString());
+                                        else
+                                            Response.Write("Profile");    %>
+                        <span class="sr-only">(current)</span></a></li>
+                    <li class="active"><a href="faqpage.aspx">FAQ</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Learn <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="javablogpage.aspx">Java</a></li>
+                            <li><a href="androidblogpage.aspx">Android</a></li>
+                            <li><a href="#">C Programming</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Web Development</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Others</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <%--<form  role="search">--%>
+                     <!-- <div class="form-group"> --> 
+                                
+
+
+                    <asp:ScriptManager ID="ScriptManager1" runat="server">
+                    </asp:ScriptManager>
+                    <div>   
+                    <asp:TextBox ID="txtCity" runat="server" class="navbar-form navbar-left form-control" type="text"  placeholder="Search"></asp:TextBox>
+                    <asp:AutoCompleteExtender ID="AutoCompleteExtender1" runat="server" TargetControlID="txtCity"
+                         MinimumPrefixLength="1" EnableCaching="true" CompletionSetCount="1" CompletionInterval="1000"
+                         ServiceMethod="GetCity" UseContextKey="True" >
+                    </asp:AutoCompleteExtender>
+                    </div>
+                
+
+
+                &nbsp;<asp:Button ID="Button1" runat="server" OnClick="Submit_Click" class="navbar-form navbar-left form-control btn btn-default" Text="Submit"  type="submit"/>
+                        
+                   
+                <%--</form>--%>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#" id="A1" runat="server" onserverclick="Link_Click"><%if(Session["login"]!=null)
+                                                                                            Response.Write("<span class=\"glyphicon glyphicon-log-in\"></span> Log Out");
+                                                                                             %></a></li>
+                    
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    </div>
+    <div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+      <h3>Online Community Blog</h3>
+      <ul class="nav nav-pills nav-stacked">
+        <li ><a href="Default.aspx">Home</a></li>
+        <li><a href="Friend.aspx">Friends</a></li>
+        <li><a href="#section3">Photos</a></li>
+        <li>
+            <div class="panel-group">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" href="#collapse1">Blog</a>
+                        </h4>
+                    </div>
+                    <div id="collapse1" class="panel-collapse collapse">
+                        <ul class="list-group">
+                            <li class="list-group-item"><a href="javablogpage.aspx">Java Blog</a></li>
+                            <li class="list-group-item"><a href="androidblogpage.aspx">Android Blog</a></li>
+                            <li class="list-group-item"><a href="#">Others</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+         </li>
+          <li>
+            <div class="panel-group">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" href="#collapse2">Questions</a>
+                        </h4>
+                    </div>
+                    <div id="collapse2" class="panel-collapse collapse">
+                        <ul class="list-group">
+                            <asp:DataList ID="DataList1" Visible="true" runat="server" AutoGenerateColumns="false"
+                            RepeatColumns="1" CellSpacing="5">
+                            <ItemTemplate>
+                                        
+                                <li class="list-group-item"><a href="faqpage2.aspx?ID=<%# Eval("Id") %>"><%# Eval("questionTitle") %></a></li>
+                                        
+                            </ItemTemplate>
+                        </asp:DataList>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            </li>
+
+
+      </ul><br>
+      
+    </div>
+
+    <div class="col-sm-9">
+        <div class="">
+
+             
+                <div>
+                   <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+
+
+
+
+                    </asp:ContentPlaceHolder>
+                </div>
+              
+
+        </div>
+    </div>
+  </div>
+</div>
+
+
+
+   </form>
+
+
+    <div class="footer">
+        <p>CopyRight &copy; Ahsanul Haque CSE 2k13</p>
+    </div>
+</body>
+</html>
+
